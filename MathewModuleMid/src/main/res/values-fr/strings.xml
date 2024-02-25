@@ -2,4 +2,7 @@
 <!--Mathew Anderson, n01436706 -->
 <resources>
     <string name="app_name">MathewMidTerm</string>
+    <string name="fragment3">Fragment3</string>
+    <string name="fragment1">Fragment1</string>
+    <string name="fragment2">Fragment2</string>
 </resources>
