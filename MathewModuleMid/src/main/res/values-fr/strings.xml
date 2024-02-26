@@ -6,12 +6,13 @@
     <string name="fragment1">Fragment1</string>
     <string name="fragment2">Fragment2</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="enter_email">Enter Email</string>
-    <string name="submit">Submit</string>
-    <string name="error_empty_email">Empty Email</string>
+    <string name="enter_email">Entrez mail</string>
+    <string name="submit">soumettre</string>
+    <string name="error_empty_email">email vide</string>
     <string name="error_invalid_email">Invalid Email</string>
     <string name="button">Button</string>
     <string name="descripton">descripton</string>
     <string name="moved_away">"Moved Away "</string>
     <string name="times_Mathew">" times.\nMathew Anderson"</string>
+    <string name="map">map</string>
 </resources>

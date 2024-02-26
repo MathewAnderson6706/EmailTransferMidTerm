@@ -3,11 +3,20 @@ package mathew.anderson.n01436706;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -16,7 +25,6 @@ import java.util.ArrayList;
 
 public class AndersonActivity extends AppCompatActivity {
 
-    private Fragment pendingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +42,30 @@ public class AndersonActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.mathewTabLayout);
 
-        // Set tab names based on position/index
+        //set tab names based on position/index
         String[] tabNames = getResources().getStringArray(R.array.tab_names);
 
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
-                    // Customize the tab name based on position/index
                     tab.setText(tabNames[position]);
                 }
         ).attach();
 
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_map) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

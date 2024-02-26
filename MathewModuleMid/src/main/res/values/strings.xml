@@ -17,6 +17,7 @@
     <string name="descripton">descripton</string>
     <string name="moved_away">"Moved Away "</string>
     <string name="times_Mathew">" times.\nMathew Anderson"</string>
+    <string name="map">map</string>
     <string-array name="tab_names">
         <item>@string/text_label_1</item>
         <item>@string/text_label_2</item>

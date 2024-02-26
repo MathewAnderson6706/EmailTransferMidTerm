@@ -1,4 +1,6 @@
+//Mathew Anderson, n01436706
 package mathew.anderson.n01436706;
+
 
 import android.os.Bundle;
 
@@ -68,7 +70,6 @@ public class AndersonFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_anderson, container, false);
 
-        //TextView dataTextView = rootView.findViewById(R.id.matTextView2);
         RatingBar ratingBar = rootView.findViewById(R.id.matRatingBar);
         Button showRatingButton = rootView.findViewById(R.id.matButton2);
 
@@ -83,22 +84,12 @@ public class AndersonFragment extends Fragment {
                     dataTextView.setText(data);
                 } else {
                     // If no data passed, update TextView with "NO DATA"
+                    // Dont think this is needed anymore but ill keep it anyways
                     dataTextView.setText("NO DATA");
                 }
 
             }
         });
-
-        // Get data passed from MathewFragment
-//        Bundle bundle = getArguments();
-//        if (bundle != null && bundle.containsKey("data")) {
-//            String data = bundle.getString("data");
-//            // Update TextView with the passed data
-//            dataTextView.setText(data);
-//        } else {
-//            // If no data passed, update TextView with "NO DATA"
-//            dataTextView.setText("NO DATA");
-//        }
 
         // Set up RatingBar
         ratingBar.setNumStars(5);
