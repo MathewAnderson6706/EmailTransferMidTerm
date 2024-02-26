@@ -31,10 +31,14 @@ public class AndersonActivity extends AppCompatActivity {
         viewPager.setAdapter(new ViewPagerAdapter(this, fragmentList));
 
         TabLayout tabLayout = findViewById(R.id.mathewTabLayout);
+
+        // Set tab names based on position/index
+        String[] tabNames = getResources().getStringArray(R.array.tab_names);
+
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
                     // Customize the tab name based on position/index
-                    tab.setText("Tab " + (position + 1));
+                    tab.setText(tabNames[position]);
                 }
         ).attach();
 

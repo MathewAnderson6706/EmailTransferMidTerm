@@ -4,9 +4,22 @@
     <string name="text_label_1" translatable="false">Mathew</string>
     <string name="text_label_2" translatable="false">Anderson</string>
     <string name="text_label_3" translatable="false">n01436706</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment3">Fragment3</string>
     <string name="fragment1">Fragment1</string>
     <string name="fragment2">Fragment2</string>
+    <string name="my_name" translatable="false">Mathew Anderson</string>
+    <string-array name="tab_names">
+        <item>@string/text_label_1</item>
+        <item>@string/text_label_2</item>
+        <item>@string/text_label_3</item>
+    </string-array>
+    <string-array name="mathew">
+        <item>example1@outlook.com</item>
+        <item>example2@outlook.com</item>
+        <item>example3@outlook.com</item>
+        <item>example4@gmail.com</item>
+        <item>example5@gmail.com</item>
+        <item>example6@gmail.com</item>
+    </string-array>
 </resources>
