@@ -9,6 +9,10 @@
     <string name="fragment1">Fragment1</string>
     <string name="fragment2">Fragment2</string>
     <string name="my_name" translatable="false">Mathew Anderson</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="submit">Submit</string>
+    <string name="error_empty_email">Empty Email</string>
+    <string name="error_invalid_email">Invalid Email</string>
     <string-array name="tab_names">
         <item>@string/text_label_1</item>
         <item>@string/text_label_2</item>

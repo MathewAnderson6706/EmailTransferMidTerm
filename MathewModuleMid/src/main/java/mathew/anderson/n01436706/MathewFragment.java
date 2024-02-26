@@ -4,9 +4,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +65,33 @@ public class MathewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mathew, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_mathew, container, false);
+
+        TextView mathewTextView = rootView.findViewById(R.id.matTextView);
+        AutoCompleteTextView emailAutoCompleteTextView = rootView.findViewById(R.id.matAutoCompleteTextView);
+        Button submitButton = rootView.findViewById(R.id.matButton);
+
+        ArrayAdapter<String> emailAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, getResources().getStringArray(R.array.mathew));
+        emailAutoCompleteTextView.setAdapter(emailAdapter);
+
+        submitButton.setOnClickListener(view -> {
+            // Validate user input
+            String email = emailAutoCompleteTextView.getText().toString().trim();
+            if (TextUtils.isEmpty(email)) {
+                emailAutoCompleteTextView.setError(getString(R.string.error_empty_email));
+            } else if (!isValidEmail(email)) {
+                emailAutoCompleteTextView.setError(getString(R.string.error_invalid_email));
+            } else {
+                // Use FragmentManager to pass the email to another fragment
+                // Clear user input
+                emailAutoCompleteTextView.setText("");
+            }
+        });
+
+        return rootView;
+    }
+
+    private boolean isValidEmail(String email) {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 }
