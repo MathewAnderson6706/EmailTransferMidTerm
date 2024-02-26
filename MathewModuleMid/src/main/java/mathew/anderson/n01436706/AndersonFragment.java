@@ -2,11 +2,18 @@ package mathew.anderson.n01436706;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +66,51 @@ public class AndersonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anderson, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_anderson, container, false);
+
+        //TextView dataTextView = rootView.findViewById(R.id.matTextView2);
+        RatingBar ratingBar = rootView.findViewById(R.id.matRatingBar);
+        Button showRatingButton = rootView.findViewById(R.id.matButton2);
+
+        getParentFragmentManager().setFragmentResultListener("dataFrom1", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+
+                TextView dataTextView = rootView.findViewById(R.id.matTextView2);
+                if (result.containsKey("data")) {
+                    String data = result.getString("data");
+                    // Update TextView with the passed data
+                    dataTextView.setText(data);
+                } else {
+                    // If no data passed, update TextView with "NO DATA"
+                    dataTextView.setText("NO DATA");
+                }
+
+            }
+        });
+
+        // Get data passed from MathewFragment
+//        Bundle bundle = getArguments();
+//        if (bundle != null && bundle.containsKey("data")) {
+//            String data = bundle.getString("data");
+//            // Update TextView with the passed data
+//            dataTextView.setText(data);
+//        } else {
+//            // If no data passed, update TextView with "NO DATA"
+//            dataTextView.setText("NO DATA");
+//        }
+
+        // Set up RatingBar
+        ratingBar.setNumStars(5);
+        ratingBar.setStepSize(0.5f);
+
+        // Set up OnClickListener for the button to show the selected rating
+        showRatingButton.setOnClickListener(view -> {
+            float rating = ratingBar.getRating();
+            String message = "Rating: " + rating;
+            Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show();
+        });
+
+        return rootView;
     }
 }

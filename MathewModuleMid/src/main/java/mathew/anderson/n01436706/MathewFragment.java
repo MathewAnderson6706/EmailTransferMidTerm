@@ -82,7 +82,10 @@ public class MathewFragment extends Fragment {
             } else if (!isValidEmail(email)) {
                 emailAutoCompleteTextView.setError(getString(R.string.error_invalid_email));
             } else {
-                // Use FragmentManager to pass the email to another fragment
+                // Pass the email as an argument to AndersonFragment
+                Bundle bundle = new Bundle();
+                bundle.putString("data", email);
+                getParentFragmentManager().setFragmentResult("dataFrom1", bundle);
                 // Clear user input
                 emailAutoCompleteTextView.setText("");
             }

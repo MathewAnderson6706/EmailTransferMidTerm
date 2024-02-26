@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class AndersonActivity extends AppCompatActivity {
 
+    private Fragment pendingFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
