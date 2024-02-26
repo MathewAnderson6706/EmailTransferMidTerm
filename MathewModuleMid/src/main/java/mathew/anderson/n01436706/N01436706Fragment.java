@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextClock;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +62,25 @@ public class N01436706Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_n01436706, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_n01436706, container, false);
+
+        ImageView imageView = rootView.findViewById(R.id.matImageView);
+        TextClock textClock = rootView.findViewById(R.id.matTextClock);
+
+        return rootView;
+    }
+
+    private int pauseCounter = 0;
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Increment pauseCounter when the fragment is paused
+        pauseCounter++;
+
+        // Display toast with counter and your name
+        String message = getString(R.string.moved_away) + pauseCounter + getString(R.string.times_Mathew);
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
